@@ -4,7 +4,7 @@ fn parse(data: &str) -> Vec<(u32, &str)> {
     data.split_whitespace()
         .tuples()
         .map(|(inst, x)| (x.parse().unwrap(), inst))
-        .collect::<Vec<_>>()
+        .collect()
 }
 
 fn solve_a(data: &[(u32, &str)]) -> u32 {
