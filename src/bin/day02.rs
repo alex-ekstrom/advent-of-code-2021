@@ -7,8 +7,8 @@ fn parse(data: &str) -> Vec<(u32, &str)> {
         .collect::<Vec<_>>()
 }
 
-fn solve_a(data: &[(u32, String)]) -> u32 {
-    let (x, y) = data.into_iter().fold((0, 0), |a, b| match b.1.as_str() {
+fn solve_a(data: &[(u32, &str)]) -> u32 {
+    let (x, y) = data.into_iter().fold((0, 0), |a, b| match b.1 {
         "forward" => (a.0 + b.0, a.1),
         "down" => (a.0, a.1 + b.0),
         "up" => (a.0, a.1 - b.0),
@@ -17,8 +17,8 @@ fn solve_a(data: &[(u32, String)]) -> u32 {
     x * y
 }
 
-fn solve_b(data: &[(u32, String)]) -> u32 {
-    let (x, y, _) = data.into_iter().fold((0, 0, 0), |a, b| match b.1.as_str() {
+fn solve_b(data: &[(u32, &str)]) -> u32 {
+    let (x, y, _) = data.into_iter().fold((0, 0, 0), |a, b| match b.1 {
         "forward" => (a.0 + b.0, a.1 + (b.0 * a.2), a.2),
         "down" => (a.0, a.1, a.2 + b.0),
         "up" => (a.0, a.1, a.2 - b.0),
